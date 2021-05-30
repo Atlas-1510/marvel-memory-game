@@ -209,7 +209,7 @@ const tileArray = [
 
 function Tile(props) {
   return (
-    <Container>
+    <Container onClick={props.onClick}>
       <Img src={tileArray[props.index].img} />
       <Title>{tileArray[props.index].title}</Title>
     </Container>

@@ -21,8 +21,8 @@ function Main(props) {
   const [clickedArray, setClickedArray] = useState([]);
 
   const loadLevel = () => {
-    const tileQuantity = 4 * level;
     const tileIndexes = [];
+    const tileQuantity = 4 * level;
     // Get (tileQuantity) number of random tile objects
     for (let i = 0; i < tileQuantity; i++) {
       let randomNumber;
@@ -39,15 +39,42 @@ function Main(props) {
     loadLevel();
   }, []);
 
+  const handleTileClick = (title) => {
+    const _reorderTiles = () => {
+      const newTileOrder = [...tiles];
+      for (let i = 0; i < tiles.length; i++) {
+        let randomIndex = Math.floor(Math.random() * i);
+        [newTileOrder[i], newTileOrder[randomIndex]] = [
+          newTileOrder[randomIndex],
+          newTileOrder[i],
+        ];
+      }
+      setTiles(newTileOrder);
+    };
+    // Check if the tile has already been clicked
+    if (clickedArray.includes(title)) {
+      // Run game over function
+    } else {
+      clickedArray.push(title);
+      setCurrentScore(currentScore + 1);
+      // Check if current score is greater than high score
+      // If so, also increase high score by one
+      // ***********
+      // Refresh tiles by randomising order of tileIndexes in array
+      _reorderTiles();
+    }
+  };
+
   return (
     <>
       <ScoreHolder appStyles={props.appStyles}>
-        <h3>Current Score: 5</h3>
+        <h3>Current Score: {currentScore}</h3>
         <h3>High Score: 10</h3>
+        <h3>Level: 4</h3>
       </ScoreHolder>
       <StyledMain appStyles={props.appStyles}>
         {tiles.map((index) => {
-          return <Tile index={index} key={index} />;
+          return <Tile index={index} key={index} onClick={handleTileClick} />;
         })}
       </StyledMain>
     </>
