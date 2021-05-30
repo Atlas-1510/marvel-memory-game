@@ -208,10 +208,12 @@ const tileArray = [
 ];
 
 function Tile(props) {
+  const title = tileArray[props.index].title;
+  const img = tileArray[props.index].img;
   return (
-    <Container onClick={props.onClick}>
-      <Img src={tileArray[props.index].img} />
-      <Title>{tileArray[props.index].title}</Title>
+    <Container onClick={() => props.onClick(title)}>
+      <Img src={img} />
+      <Title>{title}</Title>
     </Container>
   );
 }

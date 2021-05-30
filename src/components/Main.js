@@ -20,7 +20,8 @@ function Main(props) {
   const [highScore, setHighScore] = useState(1);
   const [clickedArray, setClickedArray] = useState([]);
 
-  const loadLevel = () => {
+  // Load next level
+  useEffect(() => {
     const tileIndexes = [];
     const tileQuantity = 4 * level;
     // Get (tileQuantity) number of random tile objects
@@ -29,15 +30,17 @@ function Main(props) {
       do {
         randomNumber = Math.floor(Math.random() * 36);
       } while (tileIndexes.includes(randomNumber));
-
       tileIndexes.push(randomNumber);
     }
     setTiles(tileIndexes);
-  };
+  }, [level]);
 
+  // Update high score if necessary
   useEffect(() => {
-    loadLevel();
-  }, []);
+    if (currentScore > highScore) {
+      setHighScore(currentScore);
+    }
+  }, [currentScore]);
 
   const handleTileClick = (title) => {
     const _reorderTiles = () => {
@@ -54,14 +57,18 @@ function Main(props) {
     // Check if the tile has already been clicked
     if (clickedArray.includes(title)) {
       // Run game over function
+      console.log("GAME OVER");
     } else {
       clickedArray.push(title);
       setCurrentScore(currentScore + 1);
-      // Check if current score is greater than high score
-      // If so, also increase high score by one
-      // ***********
-      // Refresh tiles by randomising order of tileIndexes in array
-      _reorderTiles();
+      // Check if all the tiles have been clicked (level is complete)
+      if (clickedArray.length === tiles.length) {
+        setClickedArray([]);
+        setLevel(level + 1);
+      } else {
+        // Refresh tiles by randomising order of tileIndexes in array
+        _reorderTiles();
+      }
     }
   };
 
@@ -69,8 +76,8 @@ function Main(props) {
     <>
       <ScoreHolder appStyles={props.appStyles}>
         <h3>Current Score: {currentScore}</h3>
-        <h3>High Score: 10</h3>
-        <h3>Level: 4</h3>
+        <h3>High Score: {highScore}</h3>
+        <h3>Level: {level}</h3>
       </ScoreHolder>
       <StyledMain appStyles={props.appStyles}>
         {tiles.map((index) => {
