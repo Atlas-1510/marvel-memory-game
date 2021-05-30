@@ -1,10 +1,7 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import ScoreHolder from "./ScoreHolder";
 import Tile from "./Tile";
-import CaptainAmerica from "../img/moviePosters/captainamericathewintersoldier_lob_crd_01_1.jpg";
-import BlackWidow from "../img/moviePosters/blackwidow_lob_crd_05.jpg";
-import BlackPanther from "../img/moviePosters/blackpanther_lob_crd_01_4.jpg";
-import AntMan from "../img/moviePosters/ant-man.jpg";
 
 const StyledMain = styled.main`
   background: pink;
@@ -17,13 +14,43 @@ const StyledMain = styled.main`
 `;
 
 function Main(props) {
+  const [level, setLevel] = useState(1);
+  const [tiles, setTiles] = useState([]);
+  const [currentScore, setCurrentScore] = useState(1);
+  const [highScore, setHighScore] = useState(1);
+  const [clickedArray, setClickedArray] = useState([]);
+
+  const loadLevel = () => {
+    const tileQuantity = 4 * level;
+    const tileIndexes = [];
+    // Get (tileQuantity) number of random tile objects
+    for (let i = 0; i < tileQuantity; i++) {
+      let randomNumber;
+      do {
+        randomNumber = Math.floor(Math.random() * 36);
+      } while (tileIndexes.includes(randomNumber));
+
+      tileIndexes.push(randomNumber);
+    }
+    setTiles(tileIndexes);
+  };
+
+  useEffect(() => {
+    loadLevel();
+  }, []);
+
   return (
-    <StyledMain appStyles={props.appStyles}>
-      <Tile img={CaptainAmerica} />
-      <Tile img={BlackWidow} />
-      <Tile img={BlackPanther} />
-      <Tile img={AntMan} />
-    </StyledMain>
+    <>
+      <ScoreHolder appStyles={props.appStyles}>
+        <h3>Current Score: 5</h3>
+        <h3>High Score: 10</h3>
+      </ScoreHolder>
+      <StyledMain appStyles={props.appStyles}>
+        {tiles.map((index) => {
+          return <Tile index={index} key={index} />;
+        })}
+      </StyledMain>
+    </>
   );
 }
 

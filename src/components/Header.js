@@ -12,23 +12,8 @@ const StyledImg = styled.img`
   }
 `;
 
-const ScoreHolder = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-itmes: baseline;
-  background: ${(props) => props.appStyles.backgroundColor};
-`;
-
 function Header(props) {
-  return (
-    <div>
-      <StyledImg src={headerBackground} />
-      <ScoreHolder appStyles={props.appStyles}>
-        <h3>Current Score: 5</h3>
-        <h3>High Score: 10</h3>
-      </ScoreHolder>
-    </div>
-  );
+  return <StyledImg src={headerBackground} />;
 }
 
 export default Header;
