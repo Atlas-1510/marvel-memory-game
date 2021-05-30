@@ -12,8 +12,7 @@ const StyledApp = styled.div`
 `;
 
 const appStyles = {
-  // backgroundColor: "#F1FAEE",
-  backgroundColor: "#A8DADC",
+  backgroundColor: "#f8f9fa",
 };
 
 function App() {

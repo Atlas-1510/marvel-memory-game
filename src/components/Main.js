@@ -4,13 +4,18 @@ import ScoreHolder from "./ScoreHolder";
 import Tile from "./Tile";
 
 const StyledMain = styled.main`
-  background: pink;
+  background: ${(props) => props.appStyles.backgroundColor};
   height: 100%;
   max-width: 100vw;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
   align-content: flex-start;
+`;
+
+const StyledTitle = styled.h3`
+  padding: 1rem;
+  font-size: 2rem;
 `;
 
 function Main(props) {
@@ -75,13 +80,15 @@ function Main(props) {
   return (
     <>
       <ScoreHolder appStyles={props.appStyles}>
-        <h3>Current Score: {currentScore}</h3>
-        <h3>High Score: {highScore}</h3>
-        <h3>Level: {level}</h3>
+        <StyledTitle>CURRENT SCORE: {currentScore}</StyledTitle>
+        <StyledTitle>HIGH SCORE: {highScore}</StyledTitle>
+        <StyledTitle>LEVEL: {level}</StyledTitle>
       </ScoreHolder>
       <StyledMain appStyles={props.appStyles}>
         {tiles.map((index) => {
-          return <Tile index={index} key={index} onClick={handleTileClick} />;
+          return (
+            <Tile index={index} key={index} handleClick={handleTileClick} />
+          );
         })}
       </StyledMain>
     </>

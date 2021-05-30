@@ -42,14 +42,14 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  align-itmes: flex-start;
-  background: lightgreen;
+  align-items: center;
   width: 150px;
   margin: 1rem;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
 `;
 const Img = styled.img`
   width: 100%;
+  margin-bottom: 1rem;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
   src: ${(props) => props.src};
 `;
 
@@ -57,6 +57,9 @@ const Title = styled.h2`
   width: 100%;
   font-size: 0.8rem;
   line-height: 1.4;
+  font-size: 0.8rem;
+  text-align: center;
+  font-family: Roboto;
 `;
 
 // Add tile object array here
@@ -107,7 +110,7 @@ const tileArray = [
   },
   {
     img: captainAmerica,
-    title: "Captian America",
+    title: "Captain America",
   },
   {
     img: captainAmericaCivilWar,
@@ -211,7 +214,7 @@ function Tile(props) {
   const title = tileArray[props.index].title;
   const img = tileArray[props.index].img;
   return (
-    <Container onClick={() => props.onClick(title)}>
+    <Container onClick={() => props.handleClick(title)}>
       <Img src={img} />
       <Title>{title}</Title>
     </Container>
