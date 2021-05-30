@@ -12,7 +12,7 @@ const StyledApp = styled.div`
 `;
 
 const appStyles = {
-  backgroundColor: "#f8f9fa",
+  backgroundColor: "#d3d3d3",
 };
 
 function App() {
@@ -20,7 +20,7 @@ function App() {
     <StyledApp>
       <Header appStyles={appStyles} />
       <Main appStyles={appStyles} />
-      <Footer />
+      <Footer appStyles={appStyles} />
     </StyledApp>
   );
 }

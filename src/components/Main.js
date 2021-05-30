@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import ScoreHolder from "./ScoreHolder";
 import Tile from "./Tile";
+import GameOver from "./GameOver";
 
 const StyledMain = styled.main`
   background: ${(props) => props.appStyles.backgroundColor};
@@ -21,12 +22,17 @@ const StyledTitle = styled.h3`
 function Main(props) {
   const [level, setLevel] = useState(1);
   const [tiles, setTiles] = useState([]);
-  const [currentScore, setCurrentScore] = useState(1);
-  const [highScore, setHighScore] = useState(1);
+  const [currentScore, setCurrentScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
   const [clickedArray, setClickedArray] = useState([]);
+  const [gameOver, setGameOver] = useState(false);
 
   // Load next level
   useEffect(() => {
+    console.log("level effect activated");
+    if (level === -1) {
+      setLevel(1);
+    }
     const tileIndexes = [];
     const tileQuantity = 4 * level;
     // Get (tileQuantity) number of random tile objects
@@ -62,7 +68,7 @@ function Main(props) {
     // Check if the tile has already been clicked
     if (clickedArray.includes(title)) {
       // Run game over function
-      console.log("GAME OVER");
+      setGameOver(true);
     } else {
       clickedArray.push(title);
       setCurrentScore(currentScore + 1);
@@ -77,22 +83,45 @@ function Main(props) {
     }
   };
 
-  return (
-    <>
-      <ScoreHolder appStyles={props.appStyles}>
-        <StyledTitle>CURRENT SCORE: {currentScore}</StyledTitle>
-        <StyledTitle>HIGH SCORE: {highScore}</StyledTitle>
-        <StyledTitle>LEVEL: {level}</StyledTitle>
-      </ScoreHolder>
-      <StyledMain appStyles={props.appStyles}>
-        {tiles.map((index) => {
-          return (
-            <Tile index={index} key={index} handleClick={handleTileClick} />
-          );
-        })}
-      </StyledMain>
-    </>
-  );
+  const handlePlayAgainClick = () => {
+    console.log("click registered");
+    setCurrentScore(0);
+    setClickedArray([]);
+    setGameOver(false);
+    setLevel(-1);
+  };
+
+  if (gameOver) {
+    return (
+      <>
+        <ScoreHolder appStyles={props.appStyles}>
+          <StyledTitle>CURRENT SCORE: {currentScore}</StyledTitle>
+          <StyledTitle>HIGH SCORE: {highScore}</StyledTitle>
+          <StyledTitle>LEVEL: {level}</StyledTitle>
+        </ScoreHolder>
+        <StyledMain appStyles={props.appStyles}>
+          <GameOver handlePlayAgainClick={handlePlayAgainClick} />
+        </StyledMain>
+      </>
+    );
+  } else {
+    return (
+      <>
+        <ScoreHolder appStyles={props.appStyles}>
+          <StyledTitle>CURRENT SCORE: {currentScore}</StyledTitle>
+          <StyledTitle>HIGH SCORE: {highScore}</StyledTitle>
+          <StyledTitle>LEVEL: {level}</StyledTitle>
+        </ScoreHolder>
+        <StyledMain appStyles={props.appStyles}>
+          {tiles.map((index) => {
+            return (
+              <Tile index={index} key={index} handleClick={handleTileClick} />
+            );
+          })}
+        </StyledMain>
+      </>
+    );
+  }
 }
 
 export default Main;
