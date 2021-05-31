@@ -69,7 +69,6 @@ const Title = styled.h2`
   font-family: Roboto;
 `;
 
-// Add tile object array here
 const tileArray = [
   {
     img: antMan,

@@ -26,5 +26,3 @@ function App() {
 }
 
 export default App;
-
-// https://www.fontspace.com/end-gamer-font-f38337
