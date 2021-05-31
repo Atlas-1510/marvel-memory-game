@@ -6,7 +6,7 @@ import GameOver from "./GameOver";
 
 const StyledMain = styled.main`
   background: ${(props) => props.appStyles.backgroundColor};
-  height: 100%;
+  flex-grow: 1;
   max-width: 100vw;
   display: flex;
   flex-wrap: wrap;

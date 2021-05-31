@@ -10,6 +10,8 @@ const StyledFooter = styled.footer`
   display: flex;
   align-items: baseline;
   justify-content: flex-end;
+  position: sticky;
+  bottom: 0;
 `;
 
 function Footer(props) {
