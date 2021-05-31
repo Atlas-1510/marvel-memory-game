@@ -2,9 +2,16 @@
 
 This is a memory game built for The Odin Project. Can you remember all the movies in the Marvel Cinematic Universe?
 
-Images from https://www.marvel.com/movies
+:point_right: [View the project here](https://placeholder/) :point_left:
 
-https://imgur.com/a/XEipA
-Header image from boisteroushero on reddit
-https://i.reddit.com/r/marvelstudios/comments/85d9ac/we_are_looking_for_infinity_war_banner/
-https://www.fontspace.com/marvel-font-f32182
+## Credits
+
+- Movie posters: [Marvel](https://www.marvel.com/movies)
+- Header image: [boisteroushero on reddit](https://imgur.com/a/XEipA)
+- Marvel font: [FontSpace](https://www.fontspace.com/marvel-font-f32182)
+
+## Packages
+
+- [styled-components](https://styled-components.com/)
+- [react-icons](https://react-icons.github.io/react-icons/)
+- [create-react-app](https://github.com/facebook/create-react-app)
