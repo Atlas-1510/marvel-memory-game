@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/marvel-memory-game/static/css/main.2c4d4f51.chunk.css",
-    "main.js": "/marvel-memory-game/static/js/main.be1ff620.chunk.js",
-    "main.js.map": "/marvel-memory-game/static/js/main.be1ff620.chunk.js.map",
+    "main.css": "/marvel-memory-game/static/css/main.8ec17a47.chunk.css",
+    "main.js": "/marvel-memory-game/static/js/main.90eb0b1b.chunk.js",
+    "main.js.map": "/marvel-memory-game/static/js/main.90eb0b1b.chunk.js.map",
     "runtime-main.js": "/marvel-memory-game/static/js/runtime-main.0294d6ba.js",
     "runtime-main.js.map": "/marvel-memory-game/static/js/runtime-main.0294d6ba.js.map",
     "static/js/2.73623ff3.chunk.js": "/marvel-memory-game/static/js/2.73623ff3.chunk.js",
     "static/js/2.73623ff3.chunk.js.map": "/marvel-memory-game/static/js/2.73623ff3.chunk.js.map",
     "index.html": "/marvel-memory-game/index.html",
-    "static/css/main.2c4d4f51.chunk.css.map": "/marvel-memory-game/static/css/main.2c4d4f51.chunk.css.map",
+    "static/css/main.8ec17a47.chunk.css.map": "/marvel-memory-game/static/css/main.8ec17a47.chunk.css.map",
     "static/js/2.73623ff3.chunk.js.LICENSE.txt": "/marvel-memory-game/static/js/2.73623ff3.chunk.js.LICENSE.txt",
     "static/media/App.css": "/marvel-memory-game/static/media/Roboto-Medium.7429a63c.ttf",
     "static/media/antMan.ee220a01.jpg": "/marvel-memory-game/static/media/antMan.ee220a01.jpg",
@@ -48,7 +48,7 @@
   "entrypoints": [
     "static/js/runtime-main.0294d6ba.js",
     "static/js/2.73623ff3.chunk.js",
-    "static/css/main.2c4d4f51.chunk.css",
-    "static/js/main.be1ff620.chunk.js"
+    "static/css/main.8ec17a47.chunk.css",
+    "static/js/main.90eb0b1b.chunk.js"
   ]
 }
