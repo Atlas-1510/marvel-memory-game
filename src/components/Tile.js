@@ -45,6 +45,13 @@ const Container = styled.div`
   align-items: center;
   width: 150px;
   margin: 1rem;
+  position: relative;
+  top: 0;
+  transition: top ease 0.3s;
+
+  :hover {
+    top: -1rem;
+  }
 `;
 const Img = styled.img`
   width: 100%;
