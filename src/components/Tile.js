@@ -49,8 +49,10 @@ const Container = styled.div`
   top: 0;
   transition: top ease 0.3s;
 
-  :hover {
-    top: -1rem;
+  @media (hover: hover) and (pointer: fine) {
+    :hover {
+      top: -1rem;
+    }
   }
 `;
 const Img = styled.img`
