@@ -2,7 +2,7 @@
 
 This is a memory game built for The Odin Project. Can you remember all the movies in the Marvel Cinematic Universe?
 
-:point_right: [View the project here](https://placeholder/) :point_left:
+:point_right: [View the project here](https://atlas-1510.github.io/marvel-memory-game/) :point_left:
 
 ## Credits
 
